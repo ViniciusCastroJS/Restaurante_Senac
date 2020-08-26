@@ -1,0 +1,28 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "Todos os Pedidos";
+}
+
+
+@foreach (var item in Dados.PedidoAtual.ListarPedidos())
+{
+    <dl class="dl-horizontal p-2">
+        <dt>Descrição:</dt>
+        <dd>@item.descricao</dd>
+
+        <dt>Valor Unitário:</dt>
+        <dd>@item.valor_unitario</dd>
+
+        <dt>Quantidade:</dt>
+        <dd>@item.quantidade</dd>
+
+        <hr />
+    </dl>
+}
+
+<h3>Total: @Dados.PedidoAtual.FecharPedido()</h3>
+
+
+<a asp-action="Index">Adicionar outro item</a>
